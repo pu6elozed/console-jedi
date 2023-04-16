@@ -200,7 +200,7 @@ class InitCommand extends Command
         $content = file_get_contents($this->tmplDir . '/.jedi.php');
         $content = str_replace(
             ['%web-dir%', '%env-dir%'],
-            [addslashes($webDir), addslashes($this->envDir)],
+            [addslashes($webDir ?? null), addslashes($this->envDir ?? null)],
             $content
         );
         $fs->dumpFile($path, $content);
