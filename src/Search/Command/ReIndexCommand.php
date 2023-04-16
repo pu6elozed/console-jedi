@@ -40,7 +40,7 @@ class ReIndexCommand extends BitrixCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if (!Loader::includeModule('search')) {
             throw new BitrixException('Search module is not installed');
@@ -73,6 +73,6 @@ class ReIndexCommand extends BitrixCommand
 
         $output->writeln(sprintf('<info>Reindexed</info> %d element%s.', $searchResult, $searchResult > 1 ? 's' : ''));
 
-        return 0;
+        return self::SUCCESS;
     }
 }

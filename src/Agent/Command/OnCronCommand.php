@@ -32,9 +32,11 @@ class OnCronCommand extends BitrixCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         Option::set('main', 'agents_use_crontab', 'N');
         Option::set('main', 'check_agents', 'N');
+
+        return self::SUCCESS;
     }
 }

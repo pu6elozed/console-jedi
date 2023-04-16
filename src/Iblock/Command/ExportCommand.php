@@ -78,13 +78,13 @@ class ExportCommand extends BitrixCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $formatter = new FormatterHelper();
 
         if (count($this->errors) > 0) {
             $output->writeln($formatter->formatBlock($this->errors, 'error'));
-            return false;
+            return self::FAILURE;
         }
 
         $exporter = new Exporter();
@@ -113,6 +113,6 @@ class ExportCommand extends BitrixCommand
             }
         }
 
-        return true;
+        return self::SUCCESS;
     }
 }

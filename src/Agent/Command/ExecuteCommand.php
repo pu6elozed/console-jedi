@@ -31,7 +31,7 @@ class ExecuteCommand extends BitrixCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         @set_time_limit(0);
         @ignore_user_abort(true);
@@ -45,5 +45,7 @@ class ExecuteCommand extends BitrixCommand
 
         $eventManager = new \CEvent();
         $eventManager->CheckEvents();
+
+        return self::SUCCESS;
     }
 }

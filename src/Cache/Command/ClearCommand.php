@@ -35,7 +35,7 @@ class ClearCommand extends BitrixCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dir = $input->getOption('dir');
         $tag = $input->getOption('tag');
@@ -63,5 +63,7 @@ class ClearCommand extends BitrixCommand
             Application::getInstance()->getTaggedCache()->clearByTag($tag);
             $output->writeln('<info>Bitrix cache by tag "' . $tag . '" was deleted</info>');
         }
+
+        return self::SUCCESS;
     }
 }

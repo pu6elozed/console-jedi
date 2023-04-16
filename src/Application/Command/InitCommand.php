@@ -93,7 +93,7 @@ class InitCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Install Console Jedi application</info>');
 
@@ -101,6 +101,8 @@ class InitCommand extends Command
         $this->createConfiguration($input, $output);
 
         $output->writeln('<info>' . static::COMPLETED_LOGO . '</info>');
+
+        return self::SUCCESS;
     }
 
     /**
