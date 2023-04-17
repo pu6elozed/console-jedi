@@ -119,7 +119,7 @@ class InitCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->bootstrap as $method) {
             $this->$method($input, $output);
@@ -133,6 +133,8 @@ class InitCommand extends Command
                 $this->$method($input, $output, $settings);
             }
         }
+
+        return self::SUCCESS;
     }
 
     /**
