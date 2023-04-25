@@ -31,10 +31,12 @@ class UnregisterCommand extends ModuleCommand
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function execute(InputInterface $input, OutputInterface $output)
-	{
+	protected function execute(InputInterface $input, OutputInterface $output): int
+    {
 		$module = new Module($input->getArgument('module'));
 		$module->unRegister();
 		$output->writeln(sprintf('unregistered <info>%s</info>', $module->getName()));
+
+        return self::SUCCESS;
 	}
 }

@@ -31,10 +31,12 @@ class RegisterCommand extends ModuleCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $module = new Module($input->getArgument('module'));
         $module->register();
         $output->writeln(sprintf('registered <info>%s</info>', $module->getName()));
+
+        return self::SUCCESS;
     }
 }
