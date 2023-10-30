@@ -13,11 +13,4 @@ namespace Notamedia\ConsoleJedi\Application\Command;
  */
 class Command extends \Symfony\Component\Console\Command\Command
 {
-    /**
-     * @return \Notamedia\ConsoleJedi\Application\Application
-     */
-    public function getApplication()
-    {
-        return parent::getApplication();
-    }
 }
