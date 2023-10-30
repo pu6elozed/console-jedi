@@ -131,7 +131,7 @@ class Application extends \Symfony\Component\Console\Application
     /**
      * {@inheritdoc}
      */
-    protected function getDefaultCommands()
+    protected function getDefaultCommands(): array
     {
         $commands = parent::getDefaultCommands();
         $commands[] = new \Notamedia\ConsoleJedi\Application\Command\InitCommand();
